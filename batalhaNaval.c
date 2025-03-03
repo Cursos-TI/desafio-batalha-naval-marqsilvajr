@@ -1,14 +1,36 @@
 #include <stdio.h>
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
-
 int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    // Tabuleiro (10x10)
+    int tabuleiro[10][10] = {0};
+
+    // Coordenadas dos navios
+    int LINHANavioH = 2, COLUNANavioH = 4; // Navio horizontal começa na linha 2, coluna 4
+    int LINHANavioV = 5, COLUNANavioV = 7; // Navio vertical começa na linha 5, coluna 7
+    int tamanhoNavio = 3; // Tamanho fixo dos navios
+
+    // Navio horizontal (03 casas)
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[LINHANavioH][COLUNANavioH + i] = 3;
+    }
+    // Navio vertical (03 casas)
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[LINHANavioV + i][COLUNANavioV] = 3;
+    }
+
+    // Tabuleiro (Incrementado com legenda)
+    printf("\n|----A B C D E F G H I J----|\n");
+    printf("-----------------------------\n");
+    for (int i = 0; i < 10; i++) {
+        printf("%2d|-", i + 1);  // Para exibir Nº linha
+        for (int j = 0; j < 10; j++) {
+            printf(" %d", tabuleiro[i][j]);
+        }
+        printf("\n"); // Cada linha do tabuleiro implementada
+    }
+    return 0;
+}
+
 
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
@@ -35,6 +57,3 @@ int main() {
     // 0 0 1 0 0
     // 1 1 1 1 1
     // 0 0 1 0 0
-
-    return 0;
-}
